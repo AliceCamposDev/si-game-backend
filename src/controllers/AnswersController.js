@@ -11,6 +11,11 @@ class AnswersController {
         const answers = await Answers.find()
         return res.json(answers)
     }
+    async readByDay(req, res) {
+        const { day } = req.params
+        const answers = await Answers.find({ "day": day})
+        return res.json(answers)
+    }
     
 }
 export default new AnswersController

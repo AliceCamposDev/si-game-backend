@@ -10,5 +10,6 @@ routes.get("/Questions/:day", QuestionsController.readByDay)
 
 routes.post("/Answers",AnswersController.create)
 routes.get("/Answers", AnswersController.read)
+routes.get("/Answers/:day", AnswersController.readByDay)
 
 export default routes
