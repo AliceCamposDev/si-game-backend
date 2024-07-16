@@ -5,8 +5,10 @@ const HistorySchema = new Schema({
 	survived: Boolean,
 	finalScore: Number,
 	date: Date,
-    //results: [_id: ObjectId()],
-    //playerId: ObjectId(),
+	finished: Boolean,
+	relativeScore: Number,
+	playerId: {type: Schema.Types.ObjectId, ref: 'Players'},
+    results: [{type: Schema.Types.ObjectId, ref:'Answers' }]
 })
 
 export default mongoose.model("History", HistorySchema)

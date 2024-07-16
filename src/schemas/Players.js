@@ -1,7 +1,8 @@
 import mongoose,{Schema} from 'mongoose'
 
 const PlayersSchema = new Schema({
-    email: String
+    email: String,
+    name: String
 })
 
-export default mongoose.model("Payers", PlayersSchema)
+export default mongoose.model("Players", PlayersSchema)

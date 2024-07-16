@@ -6,8 +6,7 @@ const QuestionsSchema = new Schema({
     question: String,
     readMore: String,
     correctAnswer: String,
-    //themes: [String],
-    //idAnswers: [_id: ObjectId()]
+    themes: [{id: String, name: String}]
 })
 
 export default mongoose.model("Questions", QuestionsSchema)

@@ -2,6 +2,7 @@ import express from "express"
 import mongoose, { mongo } from "mongoose"
 import cors from "cors"
 import routes from "./routes"
+require('dotenv').config();
 
 class App {
     constructor() {
@@ -12,11 +13,14 @@ class App {
         this.server.use(express.json())
         this.server.use(routes)
 
-
     }
     database() {
-        mongoose.connect('mongodb+srv://gabrielfcampos2017:Jf5m8XyLH2UwbAp1@cluster0.mfcidsv.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
-        console.log("conectado no mongao")
+        try {
+            mongoose.connect(process.env.MONGOOSE_CONNECT)
+        } catch (error) {
+            console.log(error)
+        }
+
     }
     cors() {
         const corsOptions = {
